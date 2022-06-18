@@ -83,7 +83,7 @@ jobs:
       - name: Prepack
         run: pnpm prepack
 
-      - run: pnpm publish
+      - run: pnpm publish --no-git-checks
         if: github.event_name == 'release'
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
