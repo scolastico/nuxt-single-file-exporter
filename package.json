@@ -1,0 +1,43 @@
+{
+  "name": "nuxt-single-file-exporter",
+  "version": "0.0.0",
+  "license": "MPL",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/module.mjs",
+      "require": "./src/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/module.d.ts",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "dev:generate": "nuxi generate playground",
+    "lint": "eslint ./src/module/**/* -c .eslintrc",
+    "lint:fix": "eslint ./src/module/**/* -c .eslintrc --fix"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.0.0-rc.4",
+    "inline-import": "^1.2.4",
+    "inline-scripts": "^1.7.4"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "latest",
+    "@nuxtjs/eslint-config-typescript": "latest",
+    "@types/node": "^18.0.0",
+    "eslint": "latest",
+    "jiti": "^1.13.0",
+    "micromatch": "^4.0.5",
+    "nuxt": "^3.0.0-rc.4",
+    "ufo": "^0.8.4",
+    "vite": "^2.9.12",
+    "vue": "^3.2.37"
+  }
+}
