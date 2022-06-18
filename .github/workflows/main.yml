@@ -83,7 +83,10 @@ jobs:
       - name: Prepack
         run: pnpm prepack
 
-      - run: pnpm publish --no-git-checks
+      - name: Add npm publish token
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+
+      - run: pnpm publish --no-git-checks --access public
         if: github.event_name == 'release'
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
