@@ -20,6 +20,7 @@
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
     "dev:generate": "nuxi generate playground",
+    "build:playground": "nuxi build playground",
     "lint": "eslint ./src/module/**/* -c .eslintrc",
     "lint:fix": "eslint ./src/module/**/* -c .eslintrc --fix"
   },
