@@ -162,7 +162,7 @@ yes I even reply to pr's not like about 50% of GitHub).
 - [pnpm](https://pnpm.js.org/en/guides/installation/)
 
 ### Installation
-- Run `pnpm i && cd playground && pnpm i && cd..` to install all dependencies of the module.
+- Run `pnpm i && cd playground && pnpm i --shamefully-hoist && cd..` to install all dependencies of the module.
 
 ### Usage
 - Use `pnpm dev:generate` to export an inline html file of the [playground](./playground).
