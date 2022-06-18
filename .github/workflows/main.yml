@@ -20,6 +20,19 @@ jobs:
         with:
           node-version: 16
 
+      - id: get_version
+        if: github.event_name == 'release'
+        uses: battila7/get-version-action@v2
+
+      - name: Replace version
+        if: github.event_name == 'release'
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "0.0.0"
+          replace: ${{ steps.get_version.outputs.version }}
+          regex: false
+          include: '**/package.json'
+
       - uses: pnpm/action-setup@v2.2.2
         with:
           version: 7
@@ -45,6 +58,24 @@ jobs:
 
       - name: Build playground
         run: pnpm dev:generate
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Inlined Playground HTML
+          path: playground/.output/inlined/index.html
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Pull request artifacts
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: gavv/pull-request-artifacts@v1.0.0
+        with:
+          commit: ${{ github.event.pull_request.head.sha }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts-branch: artifacts
+          artifacts: |
+            playground/.output/inlined/index.html
 
       - name: Lint
         run: pnpm lint
