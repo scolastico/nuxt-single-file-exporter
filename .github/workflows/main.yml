@@ -37,7 +37,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm ci
+        run: pnpm i
 
       - name: Lint
         run: pnpm lint
@@ -74,7 +74,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm ci
+        run: pnpm i
 
       - run: pnpm publish
         env:
