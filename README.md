@@ -32,11 +32,11 @@ be used, and you should instead a single `app.vue` file instead of the `pages` f
 ## Usage
 
 ### Install
-1. Install the package `<to-be-updated>`
+1. Install the package `nuxt-single-file-exporter`
 2. Add the module to your `nuxt.config.ts` file:
 ```ts
 import { defineNuxtConfig } from 'nuxt'
-import NuxtSingleFileExporter from '<to-be-updated>'
+import NuxtSingleFileExporter from 'nuxt-single-file-exporter'
 
 export default defineNuxtConfig({
   modules: [
@@ -79,7 +79,7 @@ export default defineNuxtConfig({
 A full nuxt config could look like this:
 ```ts
 import { defineNuxtConfig } from 'nuxt'
-import NuxtSingleFileExporter from '<to-be-updated>'
+import NuxtSingleFileExporter from 'nuxt-single-file-exporter'
 
 export default defineNuxtConfig({
   
@@ -127,7 +127,7 @@ export default defineNuxtConfig({
 If you want to inline all html files the short config could look like this:
 ```ts
 import { defineNuxtConfig } from 'nuxt'
-import NuxtSingleFileExporter from '<to-be-updated>'
+import NuxtSingleFileExporter from 'nuxt-single-file-exporter'
 
 export default defineNuxtConfig({
   
